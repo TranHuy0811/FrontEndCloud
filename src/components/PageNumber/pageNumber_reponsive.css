@@ -1,0 +1,15 @@
+@media screen and (max-device-width: 480px) {
+    .page-number{
+        border-color:pink;
+        width:95vw;
+    }
+    .page{
+        width:30vw;
+        height:10vw;
+    }
+}  
+.page:hover{
+    cursor: pointer;
+    background-color: #43CB48;
+    color:white;
+}

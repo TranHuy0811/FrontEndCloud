@@ -1,0 +1,7 @@
+@media(max-width: 740px){
+    .product-title{
+        margin: 10px;
+        width: 350px;
+        height: 80px;
+    }
+}

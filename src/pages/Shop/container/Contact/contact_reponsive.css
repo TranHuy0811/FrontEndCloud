@@ -1,0 +1,18 @@
+@media(max-width: 740px){
+    .in-touch{
+        margin: 30px;
+        width: 250px;
+    }
+    .write-in{
+        font-size: 13px;
+    }
+    .input-form{
+        font-size: 10px;
+    }
+    .form-button{
+        width: 20vw;
+    }
+    .write-form{
+        height: 225px;
+    }
+}

@@ -1,0 +1,38 @@
+ @media(max-width: 740px){
+    .myproduct-container{
+        display: block;
+    }
+    .myproduct_img {
+        width: 330px;
+        height: 50vh;
+    }
+
+    .myproduct_info {
+        margin-top: 20px;
+        margin-left: 100px;
+    }
+
+    h1{
+        font-size:7vw;
+        color:#311616;
+        font-weight:bold;
+    }
+
+    h2{
+        margin-top: 1vw;
+    font-size: 5vw;
+    color: rgb(144, 154, 28);
+    font-weight: bold;
+    }
+
+    p{
+        text-align: start;
+        margin-top: 1vw;
+        font-size: 4.5vw;
+        font-style: italic;
+        display: inline-block;
+        width: 100%;
+}
+
+    
+ }

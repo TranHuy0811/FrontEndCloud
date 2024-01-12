@@ -1,0 +1,6 @@
+@media(max-width: 740px){
+    .footer{
+        margin-top: 450px;
+        visibility: hidden;
+    }
+}

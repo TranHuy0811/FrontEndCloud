@@ -1,0 +1,54 @@
+@media (max-width: 740px)
+{
+    .cartItem img{
+        width: 25vw;
+    }
+
+    .cartItem .description{
+        font-size: 5vw;
+        display:flex;
+    }
+
+    .countHandler {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .countHandler button{
+        width: 15vw;
+    }
+
+    .countHandler input{
+        width: 15vw;
+    }
+
+    .countHandler{
+        margin-left: 10px;
+    }
+
+    .cartItem .description b {
+        width: 42px;
+        height: 43px;
+        display: inline-block;}
+
+    .cartItem .description p{
+        width: 56px ;
+        height: 20px ;
+        }
+    
+    .checkout{
+        margin-top: 20px;
+    }
+    
+    .checkout p{
+        margin-left: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    .checkout button{
+        width: 30vw;
+        font-size: 15px;
+    }
+}

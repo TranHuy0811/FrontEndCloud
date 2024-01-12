@@ -1,0 +1,103 @@
+.signup-body{
+    width:auto;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8vw;
+}
+
+
+.in-touch{
+    width:2vw;
+    margin-top:0vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10vw;
+}
+.form{
+    display:flex;
+    margin-top: 10vw;
+    width: auto;
+    height: 36vw;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3vw;
+}
+.write-form{
+    width:40vw;
+    height: fit-content;
+    margin-left:4vw;
+    border:solid;
+    border-radius: 30px;
+    border-width: 0.5px;
+    margin-bottom:1vw;
+}
+.input-form{
+    margin-bottom:1vw;
+    width:80%;
+    height:4vw;
+    border-radius:5vw;
+    text-indent:1vw;
+    font-size:1.2vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+.write-in{
+    margin-top: 1vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-size:1.8vw;
+    margin-bottom:0.6vw;
+    font-family:Poppin;
+    color: #8B0304;
+
+}
+.form-button{
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 10vw;
+    margin-right: 6vw;
+    margin-bottom: 1vw;
+}
+
+.button-img {
+    width: 20vw;
+    height: auto;
+}
+
+.write-form button:hover{
+    cursor:pointer;
+}
+.write-form button{
+    margin-top:1vw;
+}
+.uber{
+    width:45vw;
+    height:35vw;
+    margin-top:7vw;
+    margin-bottom: 8vw;
+}
+
+.write-form button{
+    width: fit-content;
+    height: fit-content;
+    border:none;
+}
+
+.login{
+    width: auto;
+    height: fit-content;
+    align-items: center;
+    margin-left: 15vw;
+    margin-right: 10vw;
+}
+
+.login-word{
+    color:rgb(48, 61, 204);
+}
