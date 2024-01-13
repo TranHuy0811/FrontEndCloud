@@ -10,6 +10,9 @@ import { ShopContextProvider } from './context/shopContext';
 import { AuthProvider } from "./context/AuthContext";
 import { Checkout } from './pages/Checkout/checkout';
 
+import PrivateRoute from "./authentication/PrivateRoute"
+import Dashboard from "./Dashboard"
+
 import Signup from "./authentication/Signup";
 import Login from "./authentication/Login";
 import ForgotPassword from "./authentication/ForgotPassword"
@@ -29,6 +32,7 @@ function App() {
               <Route path='/product' element={<Product />} />
               <Route path='/checkout' element={<Checkout />} />
 
+              <Route path="/user" element={<PrivateRoute><Dashboard /></PrivateRoute>} ></Route>
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

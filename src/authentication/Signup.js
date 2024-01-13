@@ -39,9 +39,10 @@ export default function Signup() {
             Fullname: fullnameRef.current.value,
         }
         await setDoc(doc(db, `users`, getAuth().currentUser.uid), docData);
-        navigate("/user")
+        //navigate("/user")
         } catch (error) {
         setError("Failed to create an account")
+        console.log(error)
         }
 
         setLoading(false)
@@ -55,19 +56,22 @@ export default function Signup() {
         <div className="form" onSubmit={handleSubmit}>
             <form className="write-form">
                 <div className="write-in">Tên đăng nhập</div>
-                <input className="input-form" ref={usernameRef} type="text" placeholder="Name" required />
+                <input className="input-form" id="username" ref={usernameRef} type="username" placeholder="Name" required />
+
+                <div className="write-in">Tên đầy đủ</div>
+                <input className="input-form" id="fullname" ref={fullnameRef} type="fullname" placeholder="Name" required />
                 
                 <div for="phoneNumber" className="write-in">Số Điện Thoại</div>
-                <input className="input-form" type="text" placeholder='0123456789' name="phoneNumber" pattern="[0-9]{10}"  required />
+                <input className="input-form" type="phone-number" placeholder='0123456789' name="phoneNumber" pattern="[0-9]{10}"  required />
                 
                 <div className="write-in">Email</div>
-                <input className="input-form" type="text" ref={emailRef} placeholder="Email" required/>
+                <input className="input-form" id="email" type="email" ref={emailRef} placeholder="Email" required/>
                 
                 <div className="write-in">Mật Khẩu</div>
-                <input className="input-form" type="password" ref={passwordRef} placeholder="Password" required />
+                <input className="input-form" id="password" type="password" ref={passwordRef} placeholder="Password" required />
                 
                 <div className="write-in">Nhập lại mật Khẩu</div>
-                <input className="input-form" type="password" ref={passwordConfirmRef} placeholder="Password" required />
+                <input className="input-form" id="password-confirm" type="password" ref={passwordConfirmRef} placeholder="Password" required />
                 
                 <button disabled={loading} className="form-button" type='submit'>
                     <img className='button-img' src={images.form} alt='a'/>

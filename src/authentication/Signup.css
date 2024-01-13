@@ -17,7 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10vw;
+    margin-bottom: 36vw;
+
 }
 .form{
     display:flex;
@@ -26,7 +27,7 @@
     height: 36vw;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3vw;
+    margin-bottom: 10vw;
 }
 .write-form{
     width:40vw;
