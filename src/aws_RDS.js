@@ -1,33 +1,34 @@
-const mysql = require('mysql2/promise');
-const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager');
+// get the client
+const mysql = require('mysql2')
 
-async function getDbConfig() {
-  const client = new SecretsManagerClient({ region: 'your-region' });
-  const command = new GetSecretValueCommand({ SecretId: 'your-secret-arn' });
-  const response = await client.send(command);
-  return JSON.parse(response.SecretString);
-}
+// create the connection to database
+const connection = mysql.createConnection({
+  host: 'group5-database.cthmxbos1x1n.us-east-1.rds.amazonaws.com',
+  user: 'main',
+  database: 'NamHuongDatabase',
+  password: 'group5-password'
+});
 
-async function getProducts() {
-  const dbConfig = await getDbConfig();
-  
-  const connection = await mysql.createConnection({
-    host: dbConfig.host,
-    user: dbConfig.username,
-    password: dbConfig.password,
-    database: dbConfig.dbname,
-    port: dbConfig.port
-  });
-
-  try {
-    const [rows] = await connection.execute(
-      'SELECT id, name, price, image_link FROM products'
-    );
-    return rows;
-  } finally {
-    await connection.end();
+// connect
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
   }
-}
+ 
+  console.log('connected as id ' + connection.threadId);
+});
 
-// Usage
-getProducts().then(products => console.log(products));
+// simple query
+const db = connection.query(
+  "SELECT * FROM products",
+  function(err, results, fields) {
+    console.log(results); // results contains rows returned by server
+    console.log(fields); // fields contains extra meta data about results, if available
+  }
+)
+
+// To create an export, the file needs `connection`, `authentication`, `database`, `storage`
+// For the Auth, perhaps consider creating a new function called "getProducts"
+
+export { app as default}
