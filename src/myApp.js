@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-
 require('dotenv').config()
 const port = parseInt(process.env.APP_PORT);
 const { connection } = require('./connection');
@@ -10,7 +9,6 @@ const { connection } = require('./connection');
 
 app.use(express.urlencoded({ extended: true })); // built-in middleware to handle urlencoded form data
 app.use(express.json()); // built-in middleware for json
-
 
 
 app.post('/user', async (req, res) => {
@@ -39,9 +37,22 @@ app.get('/user', async (req, res) => {
     }
 })
 
+app.get('/product', async (req, res) => {
+    try {
+        connection.query(`SELECT * FROM products`, function (err, result) {
+            if (err) throw err;
+            res.status(200).send(result)
+        })
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).send("Internal Server Error !")
+    }
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
     console.log(`Database is connected to ${process.env.RDS_ENDPOINT}`)
 })
 
+module.exports = { app }
