@@ -25,7 +25,6 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${database_name}`, function(err)
         INSERT INTO products (productName, price, productImage)
         VALUES ("Gio Lua", 48000, "s3://group5-s3/cha_bong1.jpg");
     `
-
     connection.query(create_table_query, function(err) {
         if(err) throw err
         console.log(`Table ${table_name} Created Successfully!`)
@@ -35,4 +34,5 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${database_name}`, function(err)
         if (err) throw err
         console.log(`Insert values to ${table_name} sucessfully!`)
     })
+
 })

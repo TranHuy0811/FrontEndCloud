@@ -1,4 +1,4 @@
-const { app } = require('./myApp');
+//const { app } = require('./myApp');
 database_name = process.env.DB_NAME
 table_name = "user"
 
@@ -23,8 +23,3 @@ connection.query(`CREATE DATABASE IF NOT EXISTS ${database_name}`, function(err)
         console.log(`Table ${table_name} Created Successfully!`)
     })
 })
-
-// Table query
-
-
-module.exports = {  }

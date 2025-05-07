@@ -4,8 +4,8 @@ import bag from '../assets/bag.png';
 import x from '../assets/Big_X.png';
 import blog from '../assets/blog.png';
 import chaChien from '../assets/Chả chiên.png';
-import chaHoa from '../assets/chả hoa.png';
-import chaLua from '../assets/cha lua.png';
+import chaHoa from '../assets/chả hoa.png'; // important 2 
+import chaLua from '../assets/cha lua.png'; // important 3
 import ad from '../assets/Crispy-Spring-Rolls-PNG-Image 1.png';
 import ad2 from '../assets/Ellipse 2.png';
 import facts from '../assets/FACT.png';
@@ -19,7 +19,7 @@ import productTitle from '../assets/Products title.png';
 import searchIcon from '../assets/search-icon.png';
 import uber from '../assets/uber.png';
 import logo from '../assets/zyro-image 1.png';
-import chaBong from '../assets/Chà Bông.jpg';
+import chaBong from '../assets/Chà Bông.jpg'; // important 1 
 import twoHundredThousand from '../assets/200.000 VND.png';
 import arrow1 from "../assets/arrow1.png";
 import arrow2 from "../assets/arrow2.png";
