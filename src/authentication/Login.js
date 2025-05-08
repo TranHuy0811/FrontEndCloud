@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { Link, useNavigate, Navigate } from "react-router-dom"
 import { images } from "../constants"
 import "./Login.css"
+import { axiosInstance } from '../axios.jsx';
 import { Form, Button, Card, Alert } from "react-bootstrap"
 
 export default function Login() {
@@ -27,10 +28,20 @@ export default function Login() {
     try {
       setError("")
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
-      navigate("/")
-    } catch {
+      const payload = {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      }
+      const response = await axiosInstance.post("/auth", payload, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      alert("Email" + emailRef.current.value + "  login successfully!");
+      
+    } catch(error) {
       setError("Failed to Login")
+      console.log(error.response.data)
     }
 
     setLoading(false)

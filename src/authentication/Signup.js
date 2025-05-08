@@ -8,11 +8,13 @@ import { db } from '../firebase.js'
 
 import images from '../constants/images.js';
 import './Signup.css';
+import { axiosInstance } from '../axios.jsx';
 
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
+    const phoneNumberRef = useRef()
     const usernameRef = useRef()
     const fullnameRef = useRef()
     const { signup } = useAuth()
@@ -28,21 +30,29 @@ export default function Signup() {
         }
 
         try {
-        setError("")
-        setLoading(true)
-        await signup(emailRef.current.value, passwordRef.current.value).then(() => {
-            let firebaseUser = getAuth().currentUser;
-            return updateProfileFirebase(firebaseUser, { displayName: usernameRef.current.value }) /* coi lại sau */
-        })
-        const docData = {
-            Email: emailRef.current.value,
-            Fullname: fullnameRef.current.value,
-        }
-        await setDoc(doc(db, `users`, getAuth().currentUser.uid), docData);
-        //navigate("/user")
+            setError("")
+            setLoading(true)
+            
+            console.log(emailRef.current.value, passwordRef.current.value, usernameRef.current.value, fullnameRef.current.value, phoneNumberRef.current.value)
+
+            const payload = {
+                email: emailRef.current.value,
+                password: passwordRef.current.value,
+                username: usernameRef.current.value,
+                fullName: fullnameRef.current.value,
+                phoneNumber: phoneNumberRef.current.value,
+            }
+            
+            const response = await axiosInstance.post("/user", payload, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            alert("Email" + emailRef.current.value + " created successfully!");
+
         } catch (error) {
-        setError("Failed to create an account")
-        console.log(error)
+            setError("Failed to create an account")
+            console.log(error.response.data)
         }
 
         setLoading(false)
@@ -62,7 +72,7 @@ export default function Signup() {
                 <input className="input-form" id="fullname" ref={fullnameRef} type="fullname" placeholder="Name" required />
                 
                 <div for="phoneNumber" className="write-in">Số Điện Thoại</div>
-                <input className="input-form" type="phone-number" placeholder='0123456789' name="phoneNumber" pattern="[0-9]{10}"  required />
+                <input className="input-form" type="phone-number" ref={phoneNumberRef} name="phoneNumber" pattern="[0-9]{10}"  required />
                 
                 <div className="write-in">Email</div>
                 <input className="input-form" id="email" type="email" ref={emailRef} placeholder="Email" required/>
