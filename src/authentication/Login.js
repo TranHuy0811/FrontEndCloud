@@ -41,7 +41,7 @@ export default function Login() {
       
     } catch(error) {
       setError("Failed to Login")
-      console.log(error.response.data)
+      console.log(error.response)
     }
 
     setLoading(false)

@@ -52,7 +52,7 @@ export default function Signup() {
 
         } catch (error) {
             setError("Failed to create an account")
-            console.log(error.response.data)
+            console.log(error.response)
         }
 
         setLoading(false)
